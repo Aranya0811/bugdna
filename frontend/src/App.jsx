@@ -4,6 +4,21 @@ import ReactMarkdown from "react-markdown";
 
 const API_URL = "http://127.0.0.1:8000";
 
+
+function parseInvestigationReport(report) {
+  const sections = report.split(/^##\s+\d+\.\s+/m);
+  return sections.slice(1).map((section) => {
+    const newline = section.indexOf("\n");
+    if (newline === -1) {
+      return { title: section.trim(), content: "" };
+    }
+    return {
+      title: section.slice(0, newline).trim(),
+      content: section.slice(newline + 1).trim(),
+    };
+  });
+}
+
 function App() {
   const [stackTrace, setStackTrace] = useState("");
   const [sourceCode, setSourceCode] = useState("");
@@ -190,7 +205,19 @@ function App() {
                     Copy report ↗
                   </button>
                 </div>
-                <div className="report-text markdown-report"><ReactMarkdown>{report}</ReactMarkdown></div>
+                <div className="investigation-cards">
+                  {parseInvestigationReport(report).map((section, index) => (
+                    <section className="investigation-card" key={`${section.title}-${index}`}>
+                      <div className="investigation-card-heading">
+                        <span className="card-index">{String(index + 1).padStart(2, "0")}</span>
+                        <h3>{section.title}</h3>
+                      </div>
+                      <div className="markdown-report">
+                        <ReactMarkdown>{section.content}</ReactMarkdown>
+                      </div>
+                    </section>
+                  ))}
+                </div>
                 <div className="report-disclaimer">
                   Findings are AI-generated hypotheses. Verify the proposed fix
                   and run the regression tests before applying changes.
