@@ -7,7 +7,7 @@ BugDNA is an AI-assisted debugging tool that analyzes stack traces and source co
 
 ## 🌐 Deployment Links
 
-- **Live Website:** `PENDING_FRONTEND_DEPLOYMENT`
+- **Live Website:** `https://bugdna-zeta.vercel.app/?utm_source=chatgpt.com`
 - **Backend API:** https://bugdna-bau1.onrender.com
 - **API Documentation:** https://bugdna-bau1.onrender.com/docs
 - **Health Check:** https://bugdna-bau1.onrender.com/health
