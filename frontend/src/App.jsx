@@ -79,6 +79,14 @@ function App() {
     setError("");
   }
 
+function resetInvestigation() {
+  setStackTrace("");
+  setSourceCode("");
+  setReport("");
+  setError("");
+  setActiveSample("");
+}
+
   async function investigate() {
     if (!stackTrace.trim() || !sourceCode.trim()) {
       setError("Add both the stack trace and source code to begin.");
@@ -126,9 +134,14 @@ function App() {
         </a>
 
         <div className="side-label">INVESTIGATION</div>
-        <div className="side-active">
-          <span>⌕</span> New investigation
-        </div>
+        
+<button
+  type="button"
+  className="side-active"
+  onClick={resetInvestigation}
+>
+  <span>⌕</span> New investigation
+</button>
 
         <div className="sidebar-bottom">
           <span className="status-dot" />
