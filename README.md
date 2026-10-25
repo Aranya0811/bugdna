@@ -5,14 +5,15 @@
 
 BugDNA is an AI-assisted debugging tool that analyzes stack traces and source code to help developers understand software failures, identify likely root causes, and explore potential fixes using Google's Gemma model.
 
-## 🔗 Project Links
+## 🌐 Deployment Links
 
-- **GitHub Repository:** https://github.com/Aranya0811/bugdna
-- **Live Website:** `YOUR_VERCEL_FRONTEND_URL`
-- **Backend API:** `YOUR_RENDER_BACKEND_URL`
-- **API Health Check:** `YOUR_RENDER_BACKEND_URL/health`
+- **Live Website:** `PENDING_FRONTEND_DEPLOYMENT`
+- **Backend API:** https://bugdna-bau1.onrender.com
+- **API Documentation:** https://bugdna-bau1.onrender.com/docs
+- **Health Check:** https://bugdna-bau1.onrender.com/health
+- **Source Code:** https://github.com/Aranya0811/bugdna
 
-> **Deployment status:** The backend build has succeeded on Render. Replace the URL placeholders above with the actual service URLs once the backend is live and the frontend deployment is complete.
+> The backend is deployed on Render. The frontend website link will be added after the React application is deployed.
 
 ## ✨ Features
 
@@ -20,7 +21,7 @@ BugDNA is an AI-assisted debugging tool that analyzes stack traces and source co
 - **Root-cause analysis:** Explains likely reasons behind software failures.
 - **Structured reports:** Presents investigation results in organized sections.
 - **Three built-in sample cases:** Demonstrates common programming errors immediately.
-- **Interactive interface:** A dark developer-focused UI with lime-green accents.
+- **Interactive interface:** Dark developer-focused UI with lime-green accents.
 - **Beginner-friendly workflow:** Makes error analysis more approachable for students and developers.
 
 ## 🛠️ Tech Stack
@@ -31,17 +32,17 @@ BugDNA is an AI-assisted debugging tool that analyzes stack traces and source co
 | Backend | Python, FastAPI, Uvicorn |
 | AI Integration | Google GenAI SDK, Gemma |
 | Backend Hosting | Render |
-| Frontend Hosting | Vercel |
+| Frontend Hosting | Vercel (planned) |
 
 ## 🧪 Three Built-in Sample Cards
 
-BugDNA includes three ready-to-use examples to make demonstrations quick and easy during a hackathon.
+BugDNA includes three ready-to-use examples that make demonstrations quick and easy during a hackathon.
 
 1. **Null Profile Field** — Demonstrates an `AttributeError` caused by calling `.strip()` on a `None` value.
 2. **Index Out of Bounds** — Demonstrates an `IndexError` when accessing an element in an empty list.
 3. **Unhandled API Failure** — Demonstrates a `KeyError` when code assumes an API response contains a `user` field.
 
-Selecting a sample card automatically loads its stack trace and source code. Users can then run an investigation without manually preparing an example.
+Selecting a sample automatically loads its stack trace and source code, allowing users to investigate an example without preparing their own input.
 
 ## 💡 1. Problem Solved
 
@@ -67,7 +68,7 @@ This demonstrates how a generative model can provide contextual explanations rat
 
 ## 💚 4. Gemma Recommendations and Insights
 
-Gemma helps BugDNA produce investigation suggestions that may include:
+Gemma helps BugDNA generate investigation suggestions that may include:
 
 - Interpreting exceptions using the supplied source code.
 - Identifying likely root causes.
@@ -100,7 +101,7 @@ BugDNA can be useful for:
 - **Learning and code review:** Exploring why a particular code path may fail.
 - **Educational demonstrations:** Understanding how AI can support debugging workflows.
 
-BugDNA is designed as an investigation assistant, not a replacement for a debugger, automated tests, or experienced code review.
+BugDNA is an investigation assistant, not a replacement for a debugger, automated tests, or experienced code review.
 
 ## 🃏 7. Why Three Built-in Cards?
 
@@ -175,7 +176,7 @@ Start the backend from the project root:
 uvicorn backend.main:app --reload --port 8000
 ```
 
-The local API runs at `http://127.0.0.1:8000`.
+The local backend will run at `http://127.0.0.1:8000`.
 
 ### 3. Set up the frontend
 
@@ -203,16 +204,5 @@ For production, configure the frontend to call the deployed backend URL instead 
 **Aranya Kumar**
 
 GitHub: [@Aranya0811](https://github.com/Aranya0811)
-
----
-
-## 🌐 Live Deployment Links
-
-Update these links after deployment:
-
-- **Live Website:** `YOUR_VERCEL_FRONTEND_URL`
-- **Backend:** `YOUR_RENDER_BACKEND_URL`
-- **Health Check:** `YOUR_RENDER_BACKEND_URL/health`
-- **Source Code:** https://github.com/Aranya0811/bugdna
 
 *Built with Gemma to make debugging clearer, more accessible, and more efficient.*
