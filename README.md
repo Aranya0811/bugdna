@@ -3,22 +3,25 @@
 
 **Trace the failure. Find the root cause. Understand the fix.**
 
-BugDNA is an AI-powered debugging assistant that analyzes stack traces and source code to help developers identify likely root causes, understand errors, and explore potential fixes using Google's Gemma model.
+BugDNA is an AI-assisted debugging tool that analyzes stack traces and source code to help developers understand software failures, identify likely root causes, and explore potential fixes using Google's Gemma model.
 
-## 🚀 Live Demo
+## 🔗 Project Links
 
-- **Frontend:** `ADD_YOUR_VERCEL_URL_HERE`
-- **Backend API:** `ADD_YOUR_RENDER_URL_HERE`
-- **GitHub Repository:** [Aranya0811/bugdna](https://github.com/Aranya0811/bugdna)
+- **GitHub Repository:** https://github.com/Aranya0811/bugdna
+- **Live Website:** `YOUR_VERCEL_FRONTEND_URL`
+- **Backend API:** `YOUR_RENDER_BACKEND_URL`
+- **API Health Check:** `YOUR_RENDER_BACKEND_URL/health`
+
+> **Deployment status:** The backend build has succeeded on Render. Replace the URL placeholders above with the actual service URLs once the backend is live and the frontend deployment is complete.
 
 ## ✨ Features
 
-- **AI-powered debugging:** Investigates errors using stack traces and relevant source code.
+- **AI-powered debugging:** Investigates errors using stack traces and source code.
 - **Root-cause analysis:** Explains likely reasons behind software failures.
-- **Structured reports:** Presents debugging findings in organized sections.
-- **Three built-in sample cases:** Quickly demonstrate the application without preparing custom inputs.
-- **Interactive UI:** A dark developer-focused interface with lime-green accents.
-- **Fast experimentation:** Try different errors and investigate them without setting up separate debugging scenarios.
+- **Structured reports:** Presents investigation results in organized sections.
+- **Three built-in sample cases:** Demonstrates common programming errors immediately.
+- **Interactive interface:** A dark developer-focused UI with lime-green accents.
+- **Beginner-friendly workflow:** Makes error analysis more approachable for students and developers.
 
 ## 🛠️ Tech Stack
 
@@ -26,109 +29,117 @@ BugDNA is an AI-powered debugging assistant that analyzes stack traces and sourc
 |---|---|
 | Frontend | React, Vite, CSS |
 | Backend | Python, FastAPI, Uvicorn |
-| AI integration | Google GenAI SDK, Gemma |
-| Deployment | Render and Vercel |
+| AI Integration | Google GenAI SDK, Gemma |
+| Backend Hosting | Render |
+| Frontend Hosting | Vercel |
 
-## 🧪 Three Built-in Sample Cases
+## 🧪 Three Built-in Sample Cards
 
-The three built-in cards make it easy for hackathon judges and first-time users to explore the application immediately.
+BugDNA includes three ready-to-use examples to make demonstrations quick and easy during a hackathon.
 
 1. **Null Profile Field** — Demonstrates an `AttributeError` caused by calling `.strip()` on a `None` value.
-2. **Index Out of Bounds** — Demonstrates an `IndexError` when accessing an element from an empty list.
+2. **Index Out of Bounds** — Demonstrates an `IndexError` when accessing an element in an empty list.
 3. **Unhandled API Failure** — Demonstrates a `KeyError` when code assumes an API response contains a `user` field.
 
-Selecting a card automatically loads its example stack trace and source code, making the debugging workflow quick and accessible.
+Selecting a sample card automatically loads its stack trace and source code. Users can then run an investigation without manually preparing an example.
 
-## 💡 Problem Solved
+## 💡 1. Problem Solved
 
-Debugging can be time-consuming, especially for beginners who struggle to interpret stack traces or connect an exception to the relevant source code.
+Debugging is often time-consuming, especially for beginners who struggle to interpret stack traces and identify the code responsible for a failure.
 
-BugDNA addresses this problem by bringing error context and AI-assisted investigation into one interface. It helps developers understand what may have gone wrong, why it happened, and what they should investigate next.
+BugDNA addresses this challenge by bringing stack trace analysis, source code context, and AI-assisted investigation into one interface. It helps developers understand what might have gone wrong, why it happened, and what they should investigate next.
 
-The goal is to make debugging more approachable, reduce repetitive manual analysis, and help developers learn from their errors.
+The goal is to reduce repetitive manual analysis and make debugging more accessible.
 
-## 🧠 Experience with Gemma
+## 😊 2. How I Felt While Building It
 
-Integrating Gemma into BugDNA was an opportunity to explore how generative AI can assist with a practical software engineering task.
+Building BugDNA was an exciting, hands-on experience. It was satisfying to turn an idea into an interactive application that connects a real software development problem with AI-assisted analysis.
 
-The application sends the stack trace and relevant source code to the backend, which uses the Google GenAI SDK to request an AI-generated investigation report. The response is then displayed in a structured format.
+The process also involved debugging the application itself, resolving integration issues, configuring the backend, and improving the user interface. It reinforced that building an AI-powered product requires more than connecting a model: it also requires thoughtful design, reliable APIs, and end-to-end testing.
 
-This approach demonstrates how an open model family such as Gemma can be incorporated into a developer tool to provide contextual explanations rather than merely displaying an error message.
+## 🧠 3. Experience with Gemma
 
-## 💚 Gemma Recommendations and Insights
+Integrating Gemma into BugDNA provided an opportunity to explore how generative AI can assist with practical software engineering tasks.
 
-Gemma powers the investigation workflow by helping developers:
+The backend receives the stack trace and relevant source code, sends them to the configured Gemma model through the Google GenAI SDK, and returns an investigation report to the frontend.
 
-- Interpret exceptions in the context of the supplied source code.
-- Identify likely root causes.
-- Understand the relationship between the failure and the code.
-- Explore potential fixes and debugging steps.
+This demonstrates how a generative model can provide contextual explanations rather than merely displaying an error message.
 
-The generated recommendations should be treated as **AI-assisted suggestions**, not guaranteed diagnoses. Developers should verify suggested changes by testing the code and reviewing the surrounding application logic.
+## 💚 4. Gemma Recommendations and Insights
 
-## 🧩 Hardest Issue
+Gemma helps BugDNA produce investigation suggestions that may include:
 
-One of the most challenging parts of building BugDNA was getting the complete workflow working reliably across the frontend, backend, and AI service.
+- Interpreting exceptions using the supplied source code.
+- Identifying likely root causes.
+- Explaining the relationship between the error and the code.
+- Suggesting potential fixes and next debugging steps.
 
-The project required coordinating:
-- React input handling and investigation state.
-- FastAPI request processing and response handling.
-- Google GenAI SDK integration and model responses.
-- Network connectivity and API configuration.
-- Deployment configuration so the frontend can communicate with the backend.
+These are AI-generated recommendations, not guaranteed diagnoses. Developers should verify suggestions through testing and code review.
 
-Solving these integration challenges highlighted the importance of testing each layer independently before testing the entire application.
+## 🧩 5. Hardest Issue
 
-## 😊 How I Felt While Building It
+One of the hardest parts of building BugDNA was connecting the frontend, backend, and AI service into a reliable workflow.
 
-Building BugDNA was an exciting and practical learning experience. It was satisfying to turn an idea into an interactive tool that connects a real developer problem with AI-assisted analysis.
+Key challenges included:
 
-The process also involved debugging the debugger itself: handling connectivity issues, configuring the backend, refining the interface, and making sure sample investigations worked end to end.
+- Handling frontend inputs and investigation states.
+- Processing requests and responses through FastAPI.
+- Integrating the Google GenAI SDK.
+- Troubleshooting network connectivity and API configuration.
+- Preparing the application for deployment.
 
-The experience reinforced that building a useful AI application involves more than prompting a model. It also requires reliable software engineering, thoughtful UX, and careful integration.
+Working through these challenges highlighted the importance of testing individual components before validating the complete application.
 
-## 🎯 Project Use Cases
+## 🎯 6. Project Use Cases
 
 BugDNA can be useful for:
 
 - **Students and beginners:** Learning to interpret stack traces and understand common programming errors.
-- **Hackathon participants:** Quickly investigating errors encountered while building prototypes.
+- **Hackathon participants:** Investigating bugs encountered while rapidly developing prototypes.
 - **Developers:** Getting an initial explanation of exceptions and potential causes.
-- **Code reviews and learning:** Exploring why a particular code path may fail.
-- **Educational demonstrations:** Showing how AI can support debugging workflows.
+- **Learning and code review:** Exploring why a particular code path may fail.
+- **Educational demonstrations:** Understanding how AI can support debugging workflows.
 
-BugDNA is an investigation assistant, not a replacement for a debugger, automated test suite, or experienced code review.
+BugDNA is designed as an investigation assistant, not a replacement for a debugger, automated tests, or experienced code review.
 
-## ⚙️ Constraints and Limitations
+## 🃏 7. Why Three Built-in Cards?
+
+The three built-in cards make BugDNA easy to demonstrate during a hackathon.
+
+They provide reproducible examples of different error categories without requiring judges to write their own code or prepare stack traces. A user can select a card, launch an investigation, and immediately see the workflow in action.
+
+The examples cover a missing value, an invalid list index, and an unexpected API response.
+
+## ⚙️ 8. Constraints and Limitations
 
 - AI-generated explanations may be incorrect or incomplete.
-- The quality of the investigation depends on the accuracy and relevance of the supplied stack trace and source code.
-- The application currently focuses on user-provided error context rather than automatically inspecting a complete repository or running the program.
+- Investigation quality depends on the supplied stack trace and source code.
+- The current workflow relies on user-provided context rather than automatically executing code or inspecting an entire repository.
 - The AI service requires valid API credentials and network connectivity.
-- Free hosting services may experience cold starts, causing initial requests to take longer.
-- Sensitive code, secrets, and personal data should not be submitted unless sharing them is authorized.
+- Free hosting may introduce cold starts and slower initial requests.
+- Sensitive source code, credentials, and personal data should not be submitted unless sharing is authorized.
 
-## 🔮 Future Improvements
+## 🔮 9. Future Improvements
 
 Potential improvements include:
 
-1. **Repository integration:** Allow users to connect a GitHub repository and investigate relevant files.
-2. **More programming languages:** Improve support for Java, JavaScript, TypeScript, C++, and other languages.
-3. **Fix generation:** Offer suggested patches or corrected code with clear explanations.
-4. **Automated validation:** Run tests in a secure sandbox to check whether a proposed fix works.
-5. **Conversation-based debugging:** Let users ask follow-up questions about an investigation.
+1. **GitHub repository integration:** Automatically retrieve relevant files and investigate repository issues.
+2. **Multi-language support:** Improve analysis for Java, JavaScript, TypeScript, C++, and other languages.
+3. **Suggested code patches:** Generate proposed fixes with explanations.
+4. **Sandboxed validation:** Run tests safely to check whether suggested fixes work.
+5. **Follow-up questions:** Support conversational debugging of a report.
 6. **Investigation history:** Save and revisit previous reports.
-7. **Improved model evaluation:** Test recommendations against known bugs and measure their accuracy.
-8. **Better production reliability:** Add request timeouts, clearer error handling, monitoring, and usage limits.
-9. **Expanded examples:** Add more built-in cases covering common errors across different languages and frameworks.
+7. **Evaluation and testing:** Measure recommendation accuracy using known bugs and test cases.
+8. **Production reliability:** Add stronger monitoring, timeouts, usage limits, and error handling.
+9. **Expanded sample library:** Add more examples across languages and error categories.
 
-## 🖥️ Run Locally
+## 🚀 Run Locally
 
 ### Prerequisites
 
 - Node.js and npm
 - Python 3
-- A Google Gemini API key with access to the configured model
+- A Google API key with access to the configured model
 
 ### 1. Clone the repository
 
@@ -139,9 +150,16 @@ cd bugdna
 
 ### 2. Set up the backend
 
+Create and activate a virtual environment:
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r backend/requirements.txt
 ```
 
@@ -157,9 +175,11 @@ Start the backend from the project root:
 uvicorn backend.main:app --reload --port 8000
 ```
 
+The local API runs at `http://127.0.0.1:8000`.
+
 ### 3. Set up the frontend
 
-Open another terminal:
+Open a second terminal:
 
 ```bash
 cd frontend
@@ -169,14 +189,14 @@ npm run dev
 
 Open the local URL displayed by Vite, usually `http://localhost:5173`.
 
-For production, configure the frontend to use the deployed backend URL instead of the local API address.
+For production, configure the frontend to call the deployed backend URL instead of the local API address.
 
 ## 🔐 Security
 
 - Keep API keys in environment variables.
 - Never commit `.env` files or expose API keys in frontend code.
-- Avoid sending sensitive source code or credentials to external AI services.
-- Validate AI-generated fixes before applying them.
+- Do not send sensitive source code or credentials to external AI services unless authorized.
+- Review and test AI-generated suggestions before applying them.
 
 ## 👨‍💻 Author
 
@@ -186,4 +206,13 @@ GitHub: [@Aranya0811](https://github.com/Aranya0811)
 
 ---
 
-*Built with Gemma to make debugging more understandable, accessible, and efficient.*
+## 🌐 Live Deployment Links
+
+Update these links after deployment:
+
+- **Live Website:** `YOUR_VERCEL_FRONTEND_URL`
+- **Backend:** `YOUR_RENDER_BACKEND_URL`
+- **Health Check:** `YOUR_RENDER_BACKEND_URL/health`
+- **Source Code:** https://github.com/Aranya0811/bugdna
+
+*Built with Gemma to make debugging clearer, more accessible, and more efficient.*
