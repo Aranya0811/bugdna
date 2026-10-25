@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import ReactMarkdown from "react-markdown";
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://bugdna-bau1.onrender.com";
 
 
 const SAMPLE_CASES = [
@@ -85,6 +85,7 @@ function resetInvestigation() {
   setReport("");
   setError("");
   setActiveSample("");
+setLoading(false);
 }
 
   async function investigate() {
