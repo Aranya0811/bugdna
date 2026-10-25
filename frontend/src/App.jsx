@@ -5,6 +5,50 @@ import ReactMarkdown from "react-markdown";
 const API_URL = "http://127.0.0.1:8000";
 
 
+const SAMPLE_CASES = [
+  {
+    name: "Null profile field",
+    description: "A missing user name crashes a greeting function.",
+    stackTrace: `Traceback (most recent call last):
+  File "app.py", line 8, in greet_user
+    return "Hello, " + user["name"].strip()
+AttributeError: 'NoneType' object has no attribute 'strip'`,
+    sourceCode: `def greet_user(user):
+    return "Hello, " + user["name"].strip()
+
+user = {"name": None}
+print(greet_user(user))`,
+  },
+  {
+    name: "Index out of bounds",
+    description: "An empty list causes an invalid index access.",
+    stackTrace: `Traceback (most recent call last):
+  File "scores.py", line 5, in highest_score
+    return scores[0]
+IndexError: list index out of range`,
+    sourceCode: `def highest_score(scores):
+    return scores[0]
+
+scores = []
+print(highest_score(scores))`,
+  },
+  {
+    name: "Unhandled API failure",
+    description: "A failed request is used without checking its status.",
+    stackTrace: `Traceback (most recent call last):
+  File "client.py", line 12, in read_user
+    return response.json()["user"]["name"]
+KeyError: 'user'`,
+    sourceCode: `import requests
+
+def read_user():
+    response = requests.get("https://example.com/api/user")
+    data = response.json()
+    return data["user"]["name"]`,
+  },
+];
+
+
 function parseInvestigationReport(report) {
   const sections = report.split(/^##\s+\d+\.\s+/m);
   return sections.slice(1).map((section) => {
@@ -25,6 +69,15 @@ function App() {
   const [report, setReport] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [activeSample, setActiveSample] = useState("");
+
+  function loadSample(sample) {
+    setStackTrace(sample.stackTrace);
+    setSourceCode(sample.sourceCode);
+    setActiveSample(sample.name);
+    setReport("");
+    setError("");
+  }
 
   async function investigate() {
     if (!stackTrace.trim() || !sourceCode.trim()) {
@@ -117,6 +170,29 @@ function App() {
               <h2>Evidence intake</h2>
             </div>
             <span className="muted-label">REQUIRED INPUTS</span>
+          </div>
+
+          <div className="sample-cases">
+            <div className="sample-cases-intro">
+              <strong>Try a sample case</strong>
+              <span>Load example evidence to demo BugDNA quickly.</span>
+            </div>
+            <div className="sample-case-list">
+              {SAMPLE_CASES.map((sample) => (
+                <button
+                  type="button"
+                  className={`sample-case-button${activeSample === sample.name ? " selected" : ""}`}
+                  key={sample.name}
+                  onClick={() => loadSample(sample)}
+                >
+                  <span className="sample-case-name">{sample.name}</span>
+                  <span className="sample-case-description">{sample.description}</span>
+                  <span className="sample-case-action">
+                    {activeSample === sample.name ? "LOADED ✓" : "LOAD SAMPLE ↗"}
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="input-grid">
